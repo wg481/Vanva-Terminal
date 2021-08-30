@@ -37,7 +37,7 @@ def main():
         pass
     else:
         prod_key = getpass('Enter product key: ')
-        if prod_key == '827216':
+        if prod_key == "18333792D1CF9":
             with open(file_path, "w") as f:
                 f.write("SSdg61Daj6bghLd1Wyxu")
             print "Product activation successful!"
