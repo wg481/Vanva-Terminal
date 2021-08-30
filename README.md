@@ -8,3 +8,10 @@ In larger terms, it is a terminal. It was originally inteded as a simple project
 
 ## What is it for?
 Nothing. If you want, you can use it as a replacement terminal on your computer.
+
+## What is the difference between Terminal.py and bTerminal.py?
+Terminal.py is the official release of the Terminal. This should be safe to run and contains the official features.
+bTerminal.py is the beta release, containing features that are tested but have no assurity in working correctly.
+
+## How do I work on it?
+Fork the project, take bTerminal.py, add something to it, and set up a pull request. If the features are good, nonmalicious, useful, and well designed, the code will be added to the main branch.
