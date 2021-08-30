@@ -37,9 +37,9 @@ def main():
         pass
     else:
         prod_key = getpass('Enter product key: ')
-        if prod_key == '123321':
+        if prod_key == '827216':
             with open(file_path, "w") as f:
-                f.write("1")
+                f.write("SSdg61Daj6bghLd1Wyxu")
             print "Product activation successful!"
             print ''
             main()
@@ -51,7 +51,7 @@ def main():
 def check_activation(file_path):
     if os.path.exists(file_path):
         with open(file_path, "r") as f: 
-            return f.read(1) == "1"
+            return f.read(20) == "SSdg61Daj6bghLd1Wyxu"
     return False
 #This is the basic terminal function. 
 def terminal():
@@ -169,3 +169,4 @@ def terminal():
 #This loops the code forever until quit() is ran.
 while True:
     main()
+    
