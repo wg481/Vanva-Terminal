@@ -19,3 +19,8 @@ bTerminal.py is the beta release, containing features that are tested but have n
 
 ## How do I work on it?
 Fork the project, take bTerminal.py, add something to it, and set up a pull request. If the features are good, nonmalicious, useful, and well designed, the code will be added to the main branch.
+
+## How do I run it?
+ - Download Terminal or bTerminal.
+ - Download and install Python 2.7 here: https://www.python.org/downloads/release/python-2718/
+ - Run the file in IDLE or the command line.
