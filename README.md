@@ -6,6 +6,10 @@ Just kidding, I'm not rich enough to own a company, but I can write some pretty 
 This is a project in Python 2.7, in simple terms.
 In larger terms, it is a terminal. It was originally inteded as a simple project for me to test my knowledge of Python, and I still work on it occasionally. I thought it would be best to upload to Github so I can get help/advice for the terminal.
 
+## Why Python 2.7? Why not 3?
+I'm a traditionalist.
+And I don't want to go through, paying attention to detail on making the changes in my brain for 3. I know it's outdated, but my preference is rooted in Python 2.7.
+
 ## What is it for?
 Nothing. If you want, you can use it as a replacement terminal on your computer.
 
