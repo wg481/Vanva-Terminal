@@ -104,8 +104,10 @@ def terminal():
         print "Your build was developed as part of a program. This version still"
         print "is incompleted and requires you, the tester, to give support and rating"
         print "to determine how to better the program for the future. Insider testing"
-        print "reports should be sent via email to vanrussel23@gmail.com. We thank you"
+        print "reports should be sent via email to wg481official@gmail.com. We thank you"
         print "for being a part of the Vanva Terminal Insider testing group."
+        print "This product is a beta software, meaning features are not official."
+        print "Please consider that as you run the program."
     elif input1 == "deactivate":
         os.remove(file_path)
         print "The activation file has been deleted. Restart the software for it to take effect."
