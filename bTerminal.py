@@ -98,7 +98,7 @@ def terminal():
         print "~~~Vanva Terminal v.1.0b Github Update~~~"
         print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
         print "Coded in Python 2.7."
-        print "Coded, Edited, and Tested by Van M. Russell."
+        print "Coded, Edited, and Tested by WG481."
         print "Installer compiled to .EXE by NSIS and zip2exe."
         print ".PY file Compiled to .EXE by auto-py-to-exe."
         print "Your build was developed as part of a program. This version still"
@@ -165,7 +165,7 @@ def terminal():
                     print "  \/ anva/\  Version Beta 0.5"
                     print "The Vanva Terminal Developer Mode"
                     print "Coded in Python 2.7"
-                    print "Coded, Edited, and Tested by Van M. Russell"
+                    print "Coded, Edited, and Tested by WG481"
                 else:
                     print "Unrecognized command."
         else:
