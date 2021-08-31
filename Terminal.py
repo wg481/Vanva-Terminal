@@ -102,7 +102,7 @@ def terminal():
         print "Your build was developed as part of a program. This version still"
         print "is incompleted and requires you, the tester, to give support and rating"
         print "to determine how to better the program for the future. Insider testing"
-        print "reports should be sent via email to vanrussel23@gmail.com. We thank you"
+        print "reports should be sent via email to wg481official@gmail.com. We thank you"
         print "for being a part of the Vanva Terminal Insider testing group."
     elif input1 == "echo":
         inputecho = raw_input("Echo what? >>>:")
