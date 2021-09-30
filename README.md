@@ -1,3 +1,5 @@
+### Expect Updates Soon ###
+
 # Vanva Terminal
 Vanva Terminal is part of a Vanva subseries of products.
 Just kidding, I'm not rich enough to own a company, but I can write some pretty mean (stupid) software.
