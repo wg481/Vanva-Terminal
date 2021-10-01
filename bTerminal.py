@@ -8,7 +8,11 @@ import sys
 import msvcrt
 from getpass import getpass
 #Unneeded loading screen. Intended to simulate actual loading.
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 print "Welcome to Vanva Terminal v.1.0b"
+print "Copyright (c) 2021 WG481"
+print "Provided under license."
 print "Unpacking files..."
 print ''
 time.sleep(2)
@@ -19,13 +23,34 @@ print "Files ready."
 print ''
 print "Please wait while Vanva loads..."
 time.sleep(3)
-print ''
-print "+++++++++++++++++++++++++++++"
-print "+ \    /  _____             +"
-print "+  \  /     |               +"
-print "+   \/ anva |erminal v.1.0b +"
-print "+++++++++++++++++++++++++++++"
-print''
+clear()
+def logo():
+    print " ___      ___ ________  ________   ___      ___ ________      "
+    print "|\  \    /  /|\   __  \|\   ___  \|\  \    /  /|\   __  \     "
+    print "\ \  \  /  / | \  \|\  \ \  \\ \  \ \  \  /  / | \  \|\  \    "
+    print " \ \  \/  / / \ \   __  \ \  \\ \  \ \  \/  / / \ \   __  \   "
+    print "  \ \    / /   \ \  \ \  \ \  \\ \  \ \    / /   \ \  \ \  \  "
+    print "   \ \__/ /     \ \__\ \__\ \__\\ \__\ \__/ /     \ \__\ \__\ "
+    print "    \|__|/       \|__|\|__|\|__| \|__|\|__|/       \|__|\|__| "
+    print " _________  _______   ________  _____ ______   ___  ________   ________  ___            "
+    print "|\___   ___\\  ___ \ |\   __  \|\   _ \  _   \|\  \|\   ___  \|\   __  \|\  \           "
+    print "\|___ \  \_\ \   __/|\ \  \|\  \ \  \\\__\ \  \ \  \ \  \\ \  \ \  \|\  \ \  \          "
+    print "     \ \  \ \ \  \_|/_\ \   _  _\ \  \\|__| \  \ \  \ \  \\ \  \ \   __  \ \  \         "
+    print "      \ \  \ \ \  \_|\ \ \  \\  \\ \  \    \ \  \ \  \ \  \\ \  \ \  \ \  \ \  \        "
+    print "       \ \  \ \ \  \_|\ \ \  \\  \\ \  \    \ \  \ \  \ \  \\ \  \ \  \ \  \ \  \____   "
+    print "        \ \__\ \ \_______\ \__\\ _\\ \__\    \ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ "
+    print "         \|__|  \|_______|\|__|\|__|\|__|     \|__|\|__|\|__| \|__|\|__|\|__|\|_______| "
+    print " ___      ___  _____      ________  ________      "
+    print "|\  \    /  /|/ __  \    |\   __  \|\   __  \     "
+    print "\ \  \  /  / /\/_|\  \   \ \  \|\  \ \  \|\ /_    "
+    print " \ \  \/  / /\|/ \ \  \   \ \  \\\  \ \   __  \   "
+    print "  \ \    / /__    \ \  \ __\ \  \\\  \ \  \|\  \  "
+    print "   \ \__/ /\__\    \ \__\\__\ \_______\ \_______\ "
+    print "    \|__|/\|__|     \|__\|__|\|_______|\|_______| "
+    print ""
+    print ""
+    print 'Github Beta Warning: This is a beta version downloaded from Github. Features may crash.'
+logo()
 # This ungodly mixture of code you see here is an attempt at savefile.txt activation. Basically, a product key activation system designed to create a savefile.
 # The biggest issue is that the activation could always be fudged via savefile.txt having a 1 written to it by itself, so I'm deciphering other methods like
 # saving a string of numbers unique to the product itself. I wish myself good luck with that.
@@ -58,17 +83,22 @@ def check_activation(file_path):
 def terminal():
     input1 = raw_input("Ready for command >>>: ")
     if input1 == "help":
-        print "CHANGELOG ~~~ Prints update notes."
-        print "ECHO ~~~ Echoes some text that is inputted into a window."
-        print "END ~~~ Ends your Vanva session."
-        print "HELP ~~~ Prints help text."
-        print "HELP OPEN ~~~ Prints OPEN syntax."
-        print "OPEN ~~~ Allows you to open a file by entering a path."
-        print "OPEN WINDOW ~~~ Opens a sample window."
-        print "TIME ~~~ Prints the time."
-        print "VER INFO ~~~ Prints the version info of your build."
-        print "DEACTIVATE ~~~ Deactivates the software for testing purposes."
-        print "Quick note, don't type in CAPITALS. All of them are lowercase."
+        print " "
+        print "                   ~~~Vanva Help Command~~~"
+        print " "
+        print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+        print "+ CHANGELOG - Prints update notes.                            +"
+        print "+ ECHO - Echoes some text that is inputted into a window.     +"
+        print "+ END - Ends your Vanva session.                              +"
+        print "+ HELP - Prints help text.                                    +"
+        print "+ HELP OPEN - Prints OPEN syntax.                             +"
+        print "+ OPEN - Allows you to open a file by entering a path.        +"
+        print "+ OPEN WINDOW - Opens a sample window.                        +"
+        print "+ TIME - Prints the time.                                     +"
+        print "+ VER INFO - Prints the version info of your build.           +"
+        print "+ DEACTIVATE - Deactivates the software for testing purposes. +"
+        print "+ CLS - Clears the screen. Add argument /nl for no logo.      +"
+        print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
         print "Bug fixes. Added extended developer support. Imported new modules. More bug fixes."
     elif input1 == "time":
@@ -88,6 +118,11 @@ def terminal():
         print "  \/ anva |erminal closing..."
         time.sleep(3)
         quit()
+    elif input1 == "cls":
+        clear()
+        logo()
+    elif input1 == "cls /nl":
+        clear()
     elif input1 == "open":
         inputopen = raw_input("Path to the file? >>>: ")
         os.startfile(inputopen)
@@ -106,8 +141,6 @@ def terminal():
         print "to determine how to better the program for the future. Insider testing"
         print "reports should be sent via email to wg481official@gmail.com. We thank you"
         print "for being a part of the Vanva Terminal Insider testing group."
-        print "This product is a beta software, meaning features are not official."
-        print "Please consider that as you run the program."
     elif input1 == "deactivate":
         os.remove(file_path)
         print "The activation file has been deleted. Restart the software for it to take effect."
@@ -170,7 +203,7 @@ def terminal():
                     print "Unrecognized command."
         else:
             print "Password incorrect."
-    #This else took for ever to get the placement.
+    #This else took forever to get the placement.
     else:
         print "Invalid command. Type 'help' for command list or try again."
 #This loops the code forever until quit() is ran.
