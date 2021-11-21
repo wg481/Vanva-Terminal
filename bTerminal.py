@@ -98,6 +98,8 @@ def terminal():
         print "+ VER INFO - Prints the version info of your build.           +"
         print "+ DEACTIVATE - Deactivates the software for testing purposes. +"
         print "+ CLS - Clears the screen. Add argument /nl for no logo.      +"
+        print "+ OSC - Runs an OS level command.                             +"
+        print "+ HELP OSC - Prints information for OSC.                      +"
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
         print "Bug fixes. Added extended developer support. Imported new modules. More bug fixes."
@@ -118,6 +120,16 @@ def terminal():
         print "  \/ anva |erminal closing..."
         time.sleep(3)
         quit()
+    elif input1 == "help osc":
+        print "~~~ OSC HELP ~~~"
+        print "OSC is a command used to run OS-level commands directly through the terminal."
+        print "As of now, and command using SUDO is not supported nor reccommended."
+        print "This feature is used at your own risk, and we are not responsible for any"
+        print "damages caused by running OS-level commands."
+        print " "
+    elif input1 == "osc":
+        oscinput = raw_input('Enter OS command: ')
+        os.system(oscinput)
     elif input1 == "cls":
         clear()
         logo()
