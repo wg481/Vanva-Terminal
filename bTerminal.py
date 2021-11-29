@@ -102,7 +102,7 @@ def terminal():
         print "+ HELP OSC - Prints information for OSC.                      +"
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
-        print "Bug fixes. Added extended developer support. Imported new modules. More bug fixes."
+        print "Implemented new OSC coding! Expect a version change soon..."
     elif input1 == "time":
         print strftime("%Y-%m-%d %H:%M:%S", localtime())
     elif input1 == "open window":
