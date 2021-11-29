@@ -1,5 +1,7 @@
 ### Expect Updates Soon ###
 
+### New Feature being tested: Codecs ###
+
 # Vanva Terminal
 Vanva Terminal is part of a Vanva subseries of products.
 Just kidding, I'm not rich enough to own a company, but I can write some pretty mean (stupid) software.
@@ -26,3 +28,7 @@ Fork the project, take bTerminal.py, add something to it, and set up a pull requ
  - Download Terminal or bTerminal.
  - Download and install Python 2.7 here: https://www.python.org/downloads/release/python-2718/
  - Run the file in IDLE or the command line.
+
+
+### What are Codecs?
+Codecs are custom built modules which can be submitted. Please wait before more information is given.
