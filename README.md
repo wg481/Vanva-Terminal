@@ -1,7 +1,3 @@
-### Expect Updates Soon ###
-
-### New Feature being tested: Codecs ###
-
 # Vanva Terminal
 Vanva Terminal is part of a Vanva subseries of products.
 Just kidding, I'm not rich enough to own a company, but I can write some pretty mean (stupid) software.
@@ -17,9 +13,10 @@ And I don't want to go through, paying attention to detail on making the changes
 ## What is it for?
 Nothing. If you want, you can use it as a replacement terminal on your computer.
 
-## What is the difference between Terminal.py and bTerminal.py?
+## What is the difference between Terminal.py, bTerminal.py, and cTerminal.py?
 Terminal.py is the official release of the Terminal. This should be safe to run and contains the official features.
 bTerminal.py is the beta release, containing features that are tested but have no assurity in working correctly.
+cTerminal.py is another beta release, featuring extended support for modules known as Codecs.
 
 ## How do I work on it?
 Fork the project, take bTerminal.py, add something to it, and set up a pull request. If the features are good, nonmalicious, useful, and well designed, the code will be added to the main branch.
@@ -31,4 +28,4 @@ Fork the project, take bTerminal.py, add something to it, and set up a pull requ
 
 
 ### What are Codecs?
-Codecs are custom built modules which can be submitted. Please wait before more information is given.
+Codecs are custom built modules which can be submitted. Please read codecs.md for more information.
