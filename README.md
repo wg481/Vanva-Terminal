@@ -22,7 +22,7 @@ cTerminal.py is another beta release, featuring extended support for modules kno
 Fork the project, take bTerminal.py, add something to it, and set up a pull request. If the features are good, nonmalicious, useful, and well designed, the code will be added to the main branch.
 
 ## How do I run it?
- - Download Terminal or bTerminal.
+ - Download a Terminal file.
  - Download and install Python 2.7 here: https://www.python.org/downloads/release/python-2718/
  - Run the file in IDLE or the command line.
 
