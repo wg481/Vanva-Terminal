@@ -112,7 +112,6 @@ def terminal():
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
         print "+ CHANGELOG - Prints update notes.                            +"
         print "+ ECHO - Echoes some text that is inputted into a window.     +"
-        print "+ END - Ends your Vanva session.                              +"
         print "+ HELP - Prints help text.                                    +"
         print "+ HELP OPEN - Prints OPEN syntax.                             +"
         print "+ OPEN - Allows you to open a file by entering a path.        +"
@@ -124,28 +123,36 @@ def terminal():
         print "+ OSC - Runs an OS level command.                             +"
         print "+ HELP OSC - Prints information for OSC.                      +"
         print "+ CODECS - Prints available Codecs.                           +"
+        print "+ VANVAX - Run a depricated developer mode.                   +"
+        print "+ END - Ends your Vanva session.                              +"
         print "+                                                             +"
         print "+ You may also type a Codec Invocation command to run a       +"
         print "+ specific Codec in your installation folder.                 +"
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
-        print "Bug fixes. Added extended developer support. Imported new modules. More bug fixes."
+        print "~~~Changes have been made to Vanva since your last installation.~~~"
+        print "New version! Version 1.1b is available as part of a Beta software progam made available by Vanva."
+        print "Added a new feature: Codecs! A Codec is file which can be natively ran by the software. For more"
+        print "information, type 'help codecs'."
+        print "Codecs can now be run using a single line command, and are pre-read and set up as commands the"
+        print "moment you start Vanva Terminal."
     elif input1 == "codecs":
         try:
             global codec1
             global invokecodec1
+            print "Indexing Codecs..."
+            time.sleep(2)
             print " "
             print " " 
-            print "~~~Available Codecs~~~"
+            print " The following Codec files have been found:"
+            print "~~~~"
             print " "
             print codec1, "invoked with", invokecodec1, "command."
             print " "
-            print "~~~~~~~~~~~~~~~~~~~~~~"
+            print "~~~~"
         except:
-            print "An error occured while checking your Codecs."
-            print "A Codec may be broken, missing, or nonexistent."
-            print "Please make sure all Codecs are installed in the"
-            print "same directory as the Terminal itself."
+            print "An error occured while checking your Codecs. A Codec may be broken, missing, or nonexistent."
+            print "Please make sure all Codecs are installed the same directory as the Terminal itself."
             print " "
     elif input1 == invokecodec1:
         global codec1
@@ -189,12 +196,10 @@ def terminal():
         print "An example of how to use open: open *click enter* c:/program files/VXZLTD/terminal/terminal.exe"
         print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
     elif input1 == "ver info":
-        print "~~~Vanva Terminal v.1.0b Github Update~~~"
+        print "~~~Vanva Terminal v.1.1b Codec Update~~~"
         print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
         print "Coded in Python 2.7."
         print "Coded, Edited, and Tested by WG481."
-        print "Installer compiled to .EXE by NSIS and zip2exe."
-        print ".PY file Compiled to .EXE by auto-py-to-exe."
         print "Your build was developed as part of a program. This version still"
         print "is incompleted and requires you, the tester, to give support and rating"
         print "to determine how to better the program for the future. Insider testing"
@@ -210,7 +215,7 @@ def terminal():
         text1 = Text(root)
         text1.insert(INSERT, inputecho)
         text1.pack()
-    #VanvaX. The developer process.
+    #VanvaX. The (currently deprecated) developer process.
     elif input1 == "VanvaX":
         usernameX = ''
         print "Username: "
