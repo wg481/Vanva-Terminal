@@ -93,6 +93,8 @@ def check_codecs():
             global invokecodec1
             invokecodec1 = f.read(20)
     except:
+        global invokecodec1
+        invokecodec1 = "null"
         print "An error occured!"
         print "Codecs could not be loaded."
         print "If you did not want Codecs to appear, please type 'disable codec' to ensure this error does not occur."
@@ -128,9 +130,6 @@ def terminal():
         print "+ You may also type a Codec Invocation command to run a       +"
         print "+ specific Codec in your installation folder.                 +"
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    elif input1 == "disable codec":
-        print "Codecs have been disabled for this session. Please re-enable them to gain Codec access."
-        print "This change is not permanent."
     elif input1 == "changelog":
         print "~~~Changes have been made to Vanva since your last installation.~~~"
         print "New version! Version 1.1b is available as part of a Beta software progam made available by Vanva."
