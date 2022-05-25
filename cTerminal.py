@@ -10,6 +10,7 @@ from getpass import getpass
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 clear()
+errorthrown = 0
 print "Welcome to Vanva Terminal v.1.0b"
 print "Copyright (c) 2021 WG481"
 print "Provided under license."
@@ -93,11 +94,14 @@ def check_codecs():
             global invokecodec1
             invokecodec1 = f.read(20)
     except:
-        global invokecodec1
-        invokecodec1 = "null"
-        print "An error occured!"
-        print "Codecs could not be loaded."
-        print "If you did not want Codecs to appear, please type 'disable codec' to ensure this error does not occur."
+        global errorthrown
+        if errorthrown == 0:
+            global invokecodec1
+            invokecodec1 = "null"
+            print "An error occured!"
+            print "Codecs could not be loaded."
+            print "If you did not want Codecs to appear, please type 'disable codec' to ensure this error does not occur."
+            errorthrown += 1
 #This is the basic terminal function. 
 def terminal():
     global cdec1
