@@ -100,7 +100,6 @@ def check_codecs():
             invokecodec1 = "null"
             print "An error occured!"
             print "Codecs could not be loaded."
-            print "If you did not want Codecs to appear, please type 'disable codec' to ensure this error does not occur."
             errorthrown += 1
 #This is the basic terminal function. 
 def terminal():
