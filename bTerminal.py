@@ -5,7 +5,6 @@ from datetime import datetime
 from Tkinter import *
 import os
 import sys
-import msvcrt
 from getpass import getpass
 #Unneeded loading screen. Intended to simulate actual loading.
 def clear():
@@ -163,59 +162,6 @@ def terminal():
         text1 = Text(root)
         text1.insert(INSERT, inputecho)
         text1.pack()
-    #VanvaX. The developer process.
-    elif input1 == "VanvaX":
-        usernameX = ''
-        print "Username: "
-        while True:
-            y = msvcrt.getch()
-            if y == '\r':
-                break;
-            sys.stdout.write('~')
-            usernameX +=y
-        passwordX = ''
-        print ''
-        print 'Password: '
-        while True:
-            x = msvcrt.getch()
-            if x == '\r':
-                break;
-            sys.stdout.write('~')
-            passwordX +=x
-        if passwordX == "Gypsy" and usernameX == "Developer":
-            print ''
-            print "Welcome to VanvaX Beta v.0.5"
-            while True:
-                input2 = raw_input("Enter your VanvaX command >>>: ")
-                if input2 == "help":
-                    #VanvaX is odd. I haven't put much work into it.
-                    print "~~~VanvaX Commands~~~"
-                    print "HELP ~~~ Shows help for commands."
-                    print "VXVER ~~~ Shows VanvaX version."
-                    print "NSIS ~~~ Opens NSIS. (Requires NSIS Installed)"
-                    print "EXIT ~~~ Ends your VanvaX session."
-                elif input2 == "NSIS":
-                    os.startfile('c:/program files/nsis/nsis.exe')
-                elif input2 == "exit":
-                    print "Ending VanvaX session..."
-                    time.sleep(2)
-                    print "Closing VanvaX files..."
-                    time.sleep(2)
-                    print "Exiting VanvaX..."
-                    time.sleep(2)
-                    break;
-                elif input2 == "vxver":
-                    print "\    /" 
-                    print " \  /    \/"
-                    print "  \/ anva/\  Version Beta 0.5"
-                    print "The Vanva Terminal Developer Mode"
-                    print "Coded in Python 2.7"
-                    print "Coded, Edited, and Tested by WG481"
-                else:
-                    print "Unrecognized command."
-        else:
-            print "Password incorrect."
-    #This else took forever to get the placement.
     else:
         print "Invalid command. Type 'help' for command list or try again."
 #This loops the code forever until quit() is ran.
