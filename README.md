@@ -14,8 +14,8 @@ And I don't want to go through, paying attention to detail on making the changes
 Nothing. If you want, you can use it as a replacement terminal on your computer.
 
 ## What is the difference between Terminal.py, bTerminal.py, and cTerminal.py?
-Terminal.py is the official release of the Terminal. This should be safe to run and contains the official features.
-bTerminal.py is short for betaTerminal, containing features that are tested but have no assurity in working correctly.
+Terminal.py is the official release of the Terminal. This should be safe to run and contains the official features. <br>
+bTerminal.py is short for betaTerminal, containing features that are tested but have no assurity in working correctly. <br>
 cTerminal.py is short for canaryTerminal, which features the latest features. cTerminal gets the most work.
 
 ## Why is cTerminal a version point ahead of the rest of them?
