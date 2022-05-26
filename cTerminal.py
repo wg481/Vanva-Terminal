@@ -41,14 +41,6 @@ def logo():
     print "       \ \  \ \ \  \_|\ \ \  \\  \\ \  \    \ \  \ \  \ \  \\ \  \ \  \ \  \ \  \____   "
     print "        \ \__\ \ \_______\ \__\\ _\\ \__\    \ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ "
     print "         \|__|  \|_______|\|__|\|__|\|__|     \|__|\|__|\|__| \|__|\|__|\|__|\|_______| "
-    print " ___      ___  _____    _____  ________     "
-    print "|\  \    /  /|/ __  \  / __  \|\   __  \    "
-    print "\ \  \  /  / /\/_|\  \|\/_|\  \ \  \|\ /_   "
-    print " \ \  \/  / /\|/ \ \  \|/ \ \  \ \   __  \  "
-    print "  \ \    / /__    \ \  \ __\ \  \ \  \|\  \ "
-    print "   \ \__/ /\__\    \ \__\\__\ \__\ \_______\ "
-    print "    \|__|/\|__|     \|__\|__|\|__|\|_______|"
-    print ""
     print ""
     print 'Github Beta Warning: This is a beta version downloaded from Github. Features may crash.'
     print 'Codec Warning: Requires a Codec and two Codec Identifiers.'
