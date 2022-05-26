@@ -6,12 +6,18 @@ from Tkinter import *
 import os
 import sys
 from getpass import getpass
+try:
+    import speedtest
+    print "Speedtest imported."
+except:
+    print "Could not import speedtest."
 #Unneeded loading screen. Intended to simulate actual loading.
+devfile = "devsettings.txt"
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 clear()
 errorthrown = 0
-print "Welcome to Vanva Terminal v.1.1c"
+print "Welcome to Vanva Terminal v.1.2c"
 print "Copyright (c) 2021 WG481"
 print "Provided under license."
 print "Unpacking files..."
@@ -42,8 +48,13 @@ def logo():
     print "        \ \__\ \ \_______\ \__\\ _\\ \__\    \ \__\ \__\ \__\\ \__\ \__\ \__\ \_______\ "
     print "         \|__|  \|_______|\|__|\|__|\|__|     \|__|\|__|\|__| \|__|\|__|\|__|\|_______| "
     print ""
-    print 'Github Beta Warning: This is a beta version downloaded from Github. Features may crash.'
-    print 'Codec Warning: Requires a Codec and two Codec Identifiers.'
+    print 'Github Canary Warning: This is a build of canaryTerminal, which has features that are not wholeheartedly tested.'
+    print 'Codec Warning: This build features Codecs.'
+    global devfile
+    if os.path.exists(devfile):
+        with open(devfile, "r") as f:
+            if f.read(1) == "1":
+                print "Development Settings are enabled due to Development Bypass."  
 logo()
 # This ungodly mixture of code you see here is an attempt at savefile.txt activation. Basically, a product key activation system designed to create a savefile.
 # The biggest issue is that the activation could always be fudged via savefile.txt having a 1 written to it by itself, so I'm deciphering other methods like
@@ -61,6 +72,15 @@ def main():
             with open(file_path, "w") as f:
                 f.write("SSdg61Daj6bghLd1Wyxu")
             print "Product activation successful!"
+            print ''
+            main()
+        elif prod_key == "Devpass":
+            with open(file_path, "w") as f:
+                f.write("SSdg61Daj6bghLd1Wyxu")
+            global devfile
+            with open(devfile, "w") as f:
+                f.write("1")
+            print "Development bypass enabled."
             print ''
             main()
         else:
@@ -114,12 +134,14 @@ def terminal():
         print "+ OPEN WINDOW - Opens a sample window.                        +"
         print "+ TIME - Prints the time.                                     +"
         print "+ VER INFO - Prints the version info of your build.           +"
-        print "+ DEACTIVATE - Deactivates the software for testing purposes. +"
+        print "+ DEACTIVATE - Deactivates the software for testing purposes, +"
+        print "+ and can run alone or with two arguments: DEVPASS and ALL,   +"
+        print "+ which deactivate Development Bypass, or everything.         +"
         print "+ CLS - Clears the screen. Add argument /nl for no logo.      +"
         print "+ OSC - Runs an OS level command.                             +"
         print "+ HELP OSC - Prints information for OSC.                      +"
+        print "+ INTERNET - Prints internet download and upload.             +"
         print "+ CODECS - Prints available Codecs.                           +"
-        print "+ VANVAX - Run a depricated developer mode.                   +"
         print "+ END - Ends your Vanva session.                              +"
         print "+                                                             +"
         print "+ You may also type a Codec Invocation command to run a       +"
@@ -127,8 +149,14 @@ def terminal():
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
         print "~~~Changes have been made to Vanva since your last installation.~~~"
-        print "Added significant bug fixes that allow the program to run on macOS and Linux distributions."
-        print "Removed redundant code."
+        print "NEW FEATURES:"
+        print "Added Development Bypass for developers to get through product activation."
+        print "Created Development Bypass savefile."
+        print "Added DEACTIVATE DEVPASS to deactivate Development Bypass, which then restarts the software."
+        print "Added DEACTIVATE ALL to deactivate the software and Development Bypass."
+        print "Added INTERNET to check internet download and upload speeds. (Requires speedtest module.)"
+        print "NEW EDITS:"
+        print "Edited DEACTIVATE to restart the software."
     elif input1 == "codecs":
         try:
             global codec1
@@ -162,9 +190,7 @@ def terminal():
         time.sleep(1)
         print "Closing Vanva files and windows..."
         time.sleep(2)
-        print "\    /  _____"
-        print " \  /     | "
-        print "  \/ anva |erminal closing..."
+        print "Closing Terminal process..."
         time.sleep(3)
         quit()
     elif input1 == "help osc":
@@ -189,18 +215,104 @@ def terminal():
         print "An example of how to use open: open *click enter* c:/program files/VXZLTD/terminal/terminal.exe"
         print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
     elif input1 == "ver info":
-        print "~~~Vanva Terminal v.1.1c Codec Update~~~"
+        print "~~~Vanva Terminal v.1.2c Update~~~"
         print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
         print "Coded in Python 2.7."
         print "Coded, Edited, and Tested by WG481."
-        print "Your build was developed as part of a program. This version still"
-        print "is incompleted and requires you, the tester, to give support and rating"
-        print "to determine how to better the program for the future. Insider testing"
-        print "reports should be sent via email to wg481official@gmail.com. We thank you"
-        print "for being a part of the Vanva Terminal Insider testing group."
+        print "This is a build of canaryTerminal. Features remain thoroughly untested."
+    elif input1 == "internet":
+        print "Attempting an Internet Speed Test..."
+        print "This should take about 30 seconds."
+        try:
+            st = speedtest.Speedtest()
+            downloadspeed = int(st.download()) / 1000000
+            uploadspeed = int(st.upload()) / 1000000
+            print "Download speed: ", downloadspeed, " Mbps."
+            print "Upload speed: ", uploadspeed, " Mbps."
+            if downloadspeed > 50 and downloadspeed < 70:
+                print "Your internet speed is good. You should be able to stream HD"
+                print "video off of one device without too many problems."
+            elif downloadspeed > 70 and downloadspeed < 120:
+                print "Your internet speed is great! You should be able to handle a load"
+                print "of multiple devices streaming HD video without any problems."
+            elif downloadpseed > 120:
+                print "Your internet speed is amazing! Downloading mass amounts of files"
+                print "while streaming HD video should be ok!"
+            elif downloadspeed > 300:
+                print "...Ok, what the heck. You have an internet speed faster than 300 Mbps."
+                print "Please tell me how."
+            elif downloadspeed < 50:
+                print "Your internet speed is poor. HD video playback will be a problem."
+            print ""
+        except:
+            print ""
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print "An error occured while checking your network connection!"
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print ""
+            print "ERROR DETAILS:"
+            print "Type: connection_failed"
+            print "Name: Internet Connection"
+            print ""
+            print "Please check your internet connection and try again later."
+            print ""
     elif input1 == "deactivate":
         os.remove(file_path)
-        print "The activation file has been deleted. Restart the software for it to take effect."
+        clear()
+        print "Running deactivation..."
+        time.sleep(2)
+        print "Deactivation success. Now restarting the software..."
+        time.sleep(2)
+        clear()
+        main()
+    elif input1 == "deactivate devpass":
+        try:
+            os.remove(devfile)
+            print "Deactivating your Development Bypass settings..."
+            time.sleep(2)
+            print "Deactivation success. Now restarting the software..."
+            time.sleep(2)
+            clear()
+            main()
+        except:
+            print ""
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print "An error occured while deactivating your software!"
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print ""
+            print "ERROR DETAILS:"
+            print "Type: nonexistent_file_deletion_attempt"
+            print "Name: devsettings.txt"
+            print " "
+            print "There is no Development Bypass to deactivate. This command"
+            print "will not function unless you have Development Bypass enabled."
+            print ""
+    elif input1 == "deactivate all":
+        clear()
+        try:
+            print "Deactivating your Development Bypass settings..."
+            time.sleep(2)
+            os.remove(devfile)
+            print "Success."
+            print "Running deactivation..."
+            time.sleep(2)
+            os.remove(file_path)
+            print "The software has been deactivated. Now restarting for the change to take effect..."
+            time.sleep(2)
+            clear()
+            main()
+        except:
+            print ""
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print "An error occured while deactivating your software!"
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print ""
+            print "ERROR DETAILS:"
+            print "Type: nonexistent_file_deletion_attempt"
+            print "Name: devsettings.txt"
+            print ""
+            print "To solve this problem, run standalone DEACTIVATE."
+            print ""
     elif input1 == "echo":
         inputecho = raw_input("Echo what? >>>:")
         root = Tk()
