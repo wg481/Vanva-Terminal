@@ -11,7 +11,7 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 clear()
 errorthrown = 0
-print "Welcome to Vanva Terminal v.1.0b"
+print "Welcome to Vanva Terminal v.1.1c"
 print "Copyright (c) 2021 WG481"
 print "Provided under license."
 print "Unpacking files..."
@@ -127,11 +127,8 @@ def terminal():
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
         print "~~~Changes have been made to Vanva since your last installation.~~~"
-        print "New version! Version 1.1b is available as part of a Beta software progam made available by Vanva."
-        print "Added a new feature: Codecs! A Codec is file which can be natively ran by the software. For more"
-        print "information, type 'help codecs'."
-        print "Codecs can now be run using a single line command, and are pre-read and set up as commands the"
-        print "moment you start Vanva Terminal."
+        print "Added significant bug fixes that allow the program to run on macOS and Linux distributions."
+        print "Removed redundant code."
     elif input1 == "codecs":
         try:
             global codec1
@@ -192,7 +189,7 @@ def terminal():
         print "An example of how to use open: open *click enter* c:/program files/VXZLTD/terminal/terminal.exe"
         print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
     elif input1 == "ver info":
-        print "~~~Vanva Terminal v.1.1b Codec Update~~~"
+        print "~~~Vanva Terminal v.1.1c Codec Update~~~"
         print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
         print "Coded in Python 2.7."
         print "Coded, Edited, and Tested by WG481."

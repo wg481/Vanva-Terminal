@@ -9,7 +9,7 @@ from getpass import getpass
 #Unneeded loading screen. Intended to simulate actual loading.
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
-print "Welcome to Vanva Terminal v.1.0b"
+print "Welcome to Vanva Terminal v.1.1b"
 print "Copyright (c) 2021 WG481"
 print "Provided under license."
 print "Unpacking files..."
@@ -93,7 +93,9 @@ def terminal():
         print "+ HELP OSC - Prints information for OSC.                      +"
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
-        print "Implemented new OSC coding! Expect a version change soon..."
+        print "~~~Changes have been made to Vanva since your last installation.~~~"
+        print "Added significant bug fixes that allow the program to run on macOS and Linux distributions."
+        print "Removed redundant code."
     elif input1 == "time":
         print strftime("%Y-%m-%d %H:%M:%S", localtime())
     elif input1 == "open window":
@@ -133,7 +135,7 @@ def terminal():
         print "An example of how to use open: open *click enter* c:/program files/VXZLTD/terminal/terminal.exe"
         print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
     elif input1 == "ver info":
-        print "~~~Vanva Terminal v.1.0b Github Update~~~"
+        print "~~~Vanva Terminal v.1.1b Github Update~~~"
         print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
         print "Coded in Python 2.7."
         print "Coded, Edited, and Tested by WG481."
