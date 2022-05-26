@@ -10,7 +10,7 @@ from getpass import getpass
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 print "Welcome to Vanva Terminal v.1.1b"
-print "Copyright (c) 2021 WG481"
+print "Copyright (c) 2021-2022 WG481"
 print "Provided under license."
 print "Unpacking files..."
 print ''

@@ -18,7 +18,7 @@ def clear():
 clear()
 errorthrown = 0
 print "Welcome to Vanva Terminal v.1.2c"
-print "Copyright (c) 2021 WG481"
+print "Copyright (c) 2021-2022 WG481"
 print "Provided under license."
 print "Unpacking files..."
 print ''
@@ -157,6 +157,10 @@ def terminal():
         print "Added INTERNET to check internet download and upload speeds. (Requires speedtest module.)"
         print "NEW EDITS:"
         print "Edited DEACTIVATE to restart the software."
+        print "Edited DEACTIVATE to restart the software."
+        print "Deleted the logo from END."
+        print "Edited INTERNET code to support the inability to use the speedtest module."
+        print "Code now throws errors instead of crashing when a Codec, INTERNET, or DEACTIVATE command is lacking a file."
     elif input1 == "codecs":
         try:
             global codec1
