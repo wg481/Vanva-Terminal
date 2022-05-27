@@ -5,6 +5,7 @@ from datetime import datetime
 from Tkinter import *
 import os
 import sys
+import subprocess
 from getpass import getpass
 try:
     import speedtest
