@@ -156,7 +156,7 @@ def terminal():
         print "OPEN command now has three modes: NT, DARWIN, and OTHER."
         print " - NT Mode operates through the OS module to open."
         print " - DARWIN Mode operates through SYS and SUBPROCESS modules, and runs"
-        print " the macOS 'open' command.
+        print " the macOS 'open' command."
         print " - OTHER Mode assumes you are on Linux and runs 'xdg-open' through"
         print " the SYS and SUBPROCESS modules."
     elif input1 == "codecs":
