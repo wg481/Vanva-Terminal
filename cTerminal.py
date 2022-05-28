@@ -215,7 +215,15 @@ def terminal():
         clear()
     elif input1 == "open":
         inputopen = raw_input("Path to the file? >>>: ")
-        os.startfile(inputopen)
+        if os.name == 'nt':
+            global inputopen
+            os.startfile(inputopen)
+        elif sys.platform == "darwin":
+            global inputopen
+            subprocess.call(["open", inputopen])
+        else:
+            global inputopen
+            subprocess.call(["xdg-open", inputopen])
     elif input1 == "help open":
         print "An example of how to use open: open *click enter* c:/program files/VXZLTD/terminal/terminal.exe"
         print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
