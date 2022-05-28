@@ -18,7 +18,7 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 clear()
 errorthrown = 0
-print "Welcome to Vanva Terminal v.1.2c"
+print "Welcome to Vanva Terminal v.1.3c"
 print "Copyright (c) 2021-2022 WG481"
 print "Provided under license."
 print "Unpacking files..."
@@ -150,18 +150,15 @@ def terminal():
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
         print "~~~Changes have been made to Vanva since your last installation.~~~"
-        print "NEW FEATURES:"
-        print "Added Development Bypass for developers to get through product activation."
-        print "Created Development Bypass savefile."
-        print "Added DEACTIVATE DEVPASS to deactivate Development Bypass, which then restarts the software."
-        print "Added DEACTIVATE ALL to deactivate the software and Development Bypass."
-        print "Added INTERNET to check internet download and upload speeds. (Requires speedtest module.)"
-        print "NEW EDITS:"
-        print "Edited DEACTIVATE to restart the software."
-        print "Edited DEACTIVATE to restart the software."
-        print "Deleted the logo from END."
-        print "Edited INTERNET code to support the inability to use the speedtest module."
-        print "Code now throws errors instead of crashing when a Codec, INTERNET, or DEACTIVATE command is lacking a file."
+        print "NEW MODULES (Python 2.7 Module Imports):"
+        print "SUBPROCESS has been added for the OPEN command to run on macOS and Linux."
+        print "NEW BUGFIXES:"
+        print "OPEN command now has three modes: NT, DARWIN, and OTHER."
+        print " - NT Mode operates through the OS module to open."
+        print " - DARWIN Mode operates through SYS and SUBPROCESS modules, and runs"
+        print " the macOS 'open' command.
+        print " - OTHER Mode assumes you are on Linux and runs 'xdg-open' through"
+        print " the SYS and SUBPROCESS modules."
     elif input1 == "codecs":
         try:
             global codec1
@@ -228,7 +225,7 @@ def terminal():
         print "An example of how to use open: open *click enter* c:/program files/VXZLTD/terminal/terminal.exe"
         print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
     elif input1 == "ver info":
-        print "~~~Vanva Terminal v.1.2c Update~~~"
+        print "~~~Vanva Terminal v.1.3c Update~~~"
         print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
         print "Coded in Python 2.7."
         print "Coded, Edited, and Tested by WG481."
