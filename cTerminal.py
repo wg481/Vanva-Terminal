@@ -274,6 +274,7 @@ def terminal():
         print "Deactivation success. Now restarting the software..."
         time.sleep(2)
         clear()
+        logo()
         main()
     elif input1 == "deactivate devpass":
         try:
@@ -283,6 +284,7 @@ def terminal():
             print "Deactivation success. Now restarting the software..."
             time.sleep(2)
             clear()
+            logo()
             main()
         except:
             print ""
@@ -310,6 +312,7 @@ def terminal():
             print "The software has been deactivated. Now restarting for the change to take effect..."
             time.sleep(2)
             clear()
+            logo()
             main()
         except:
             print ""
