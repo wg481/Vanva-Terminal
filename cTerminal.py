@@ -19,22 +19,11 @@ except:
 devfile = "devsettings.txt"
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
-clear()
 errorthrown = 0
 print "Welcome to Vanva Terminal v.1.3c"
 print "Copyright (c) 2021-2022 WG481"
 print "Provided under license."
-print "Unpacking files..."
-print ''
-time.sleep(2)
-print "Reading through files..."
-print ''
-time.sleep(1)
-print "Files ready."
-print ''
-print "Please wait while Vanva loads..."
-time.sleep(3)
-clear()
+print " "
 def logo():
     print " ___      ___ ________  ________   ___      ___ ________      "
     print "|\  \    /  /|\   __  \|\   ___  \|\  \    /  /|\   __  \     "
