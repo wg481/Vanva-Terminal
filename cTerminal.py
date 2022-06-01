@@ -245,12 +245,9 @@ def terminal():
             elif downloadspeed > 70 and downloadspeed < 120:
                 print "Your internet speed is great! You should be able to handle a load"
                 print "of multiple devices streaming HD video without any problems."
-            elif downloadpseed > 120:
+            elif downloadspeed > 120:
                 print "Your internet speed is amazing! Downloading mass amounts of files"
                 print "while streaming HD video should be ok!"
-            elif downloadspeed > 300:
-                print "...Ok, what the heck. You have an internet speed faster than 300 Mbps."
-                print "Please tell me how."
             elif downloadspeed < 50:
                 print "Your internet speed is poor. HD video playback will be a problem."
             print ""
