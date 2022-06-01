@@ -274,6 +274,27 @@ def terminal():
             print "Name: Speedtest Module"
             print ""
             print "Please use PIP2 to install speedtest-cli for Python 2.7."
+    elif input1 == "pip":
+        inputpip1 = "1"
+        inputpip2 = "null"
+        commandtorun = "null"
+        global inputpip1
+        global inputpip2
+        global commandtorun
+        print "Please choose an option:"
+        print "1. Install"
+        print "2. Uninstall"
+        inputpip1 = str(raw_input("Enter option: "))
+        if inputpip1 == "1":
+            inputpip2 = raw_input("Module to install: ")
+            commandtorun = str("pip2 install " + inputpip2)
+            os.system(commandtorun)
+        elif inputpip1 == "2":
+            inputpip2 = raw_input("Module to uninstall: ")
+            commandtorun = str("pip2 uninstall" + inputpip2)
+            os.system(commandtorun)
+        else:
+            print "Please enter a valid number."
     elif input1 == "deactivate":
         os.remove(file_path)
         clear()
