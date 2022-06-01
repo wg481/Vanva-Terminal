@@ -7,9 +7,12 @@ import os
 import sys
 import subprocess
 from getpass import getpass
+global speedtestimport
+speedtestimport = 0
 try:
     import speedtest
     print "Speedtest imported."
+    speedtestimport += 1
 except:
     print "Could not import speedtest."
 #Unneeded loading screen. Intended to simulate actual loading.
@@ -142,6 +145,7 @@ def terminal():
         print "+ OSC - Runs an OS level command.                             +"
         print "+ HELP OSC - Prints information for OSC.                      +"
         print "+ INTERNET - Prints internet download and upload.             +"
+        print "+ PIP - Installs a package with PIP2.                         +"
         print "+ CODECS - Prints available Codecs.                           +"
         print "+ END - Ends your Vanva session.                              +"
         print "+                                                             +"
@@ -150,6 +154,9 @@ def terminal():
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
         print "~~~Changes have been made to Vanva since your last installation.~~~"
+        print "NEW FEATURES:"
+        print "PIP is now available! Install a Python 2.7 module right from Vanva Terminal!"
+        print "(Requires PIP2, a stable internet connection, and Python 2.7.)"
         print "NEW MODULES (Python 2.7 Module Imports):"
         print "SUBPROCESS has been added for the OPEN command to run on macOS and Linux."
         print "NEW BUGFIXES:"
@@ -159,6 +166,7 @@ def terminal():
         print " the macOS 'open' command."
         print " - OTHER Mode assumes you are on Linux and runs 'xdg-open' through"
         print " the SYS and SUBPROCESS modules."
+        print "INTERNET checks for the SPEEDTEST-CLI module to prevent errors."
     elif input1 == "codecs":
         try:
             global codec1
@@ -226,43 +234,57 @@ def terminal():
         print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
     elif input1 == "ver info":
         print "~~~Vanva Terminal v.1.3c Update~~~"
-        print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
+        print "Written using Notepad++ and Visual Studio Code."
         print "Coded in Python 2.7."
         print "Coded, Edited, and Tested by WG481."
+        print "Product Key: 18333792D1CF9"
+        print "Development Bypass support: Yes"
         print "This is a build of canaryTerminal. Features remain thoroughly untested."
     elif input1 == "internet":
-        print "Attempting an Internet Speed Test..."
-        print "This should take about 30 seconds."
-        try:
-            st = speedtest.Speedtest()
-            downloadspeed = int(st.download()) / 1000000
-            uploadspeed = int(st.upload()) / 1000000
-            print "Download speed: ", downloadspeed, " Mbps."
-            print "Upload speed: ", uploadspeed, " Mbps."
-            if downloadspeed > 50 and downloadspeed < 70:
-                print "Your internet speed is good. You should be able to stream HD"
-                print "video off of one device without too many problems."
-            elif downloadspeed > 70 and downloadspeed < 120:
-                print "Your internet speed is great! You should be able to handle a load"
-                print "of multiple devices streaming HD video without any problems."
-            elif downloadspeed > 120:
-                print "Your internet speed is amazing! Downloading mass amounts of files"
-                print "while streaming HD video should be ok!"
-            elif downloadspeed < 50:
-                print "Your internet speed is poor. HD video playback will be a problem."
-            print ""
-        except:
+        if speedtestimport == 1:
+            print "Attempting an Internet Speed Test..."
+            print "This should take about 30 seconds."
+            try:
+                st = speedtest.Speedtest()
+                downloadspeed = int(st.download()) / 1000000
+                uploadspeed = int(st.upload()) / 1000000
+                print "Download speed: ", downloadspeed, " Mbps."
+                print "Upload speed: ", uploadspeed, " Mbps."
+                if downloadspeed > 50 and downloadspeed < 70:
+                    print "Your internet speed is good. You should be able to stream HD"
+                    print "video off of one device without too many problems."
+                elif downloadspeed > 70 and downloadspeed < 120:
+                    print "Your internet speed is great! You should be able to handle a load"
+                    print "of multiple devices streaming HD video without any problems."
+                elif downloadspeed > 120:
+                    print "Your internet speed is amazing! Downloading mass amounts of files"
+                    print "while streaming HD video should be ok!"
+                elif downloadspeed < 50:
+                    print "Your internet speed is poor. HD video playback will be a problem."
+                print ""
+            except:
+                print ""
+                print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                print "An error occured while checking your network connection!"
+                print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                print ""
+                print "ERROR DETAILS:"
+                print "Type: connection_failed"
+                print "Name: Internet Connection"
+                print ""
+                print "Please check your internet connection and try again later."
+                print ""
+        else:
             print ""
             print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             print "An error occured while checking your network connection!"
             print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             print ""
             print "ERROR DETAILS:"
-            print "Type: connection_failed"
-            print "Name: Internet Connection"
+            print "Type: module_unavailable"
+            print "Name: Speedtest Module"
             print ""
-            print "Please check your internet connection and try again later."
-            print ""
+            print "Please use PIP2 to install speedtest-cli for Python 2.7."
     elif input1 == "deactivate":
         os.remove(file_path)
         clear()
