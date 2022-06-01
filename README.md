@@ -2,10 +2,11 @@
  - Vanva Terminal: v.1.1
  - Vanva betaTerminal: v.1.1b
  - Vanva canaryTerminal: v.1.2c
+Please download directly from releases to ensure you have a working build.
 
 # Vanva Terminal
 Vanva Terminal is part of a Vanva subseries of products.
-Just kidding, I'm not rich enough to own a company, but I can write some pretty mean (stupid) software.
+Just kidding, I'm not rich enough to own a company, but it is part of the Vanva product line.
 
 ## What on Earth is this?
 This is a project in Python 2.7, in simple terms.
