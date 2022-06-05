@@ -1,7 +1,9 @@
 ## Latest Releases:
  - Vanva Terminal: v.1.1
  - Vanva betaTerminal: v.1.1b
- - Vanva canaryTerminal: v.1.2c <br> <br>
+ - Vanva canaryTerminal: v.1.2c 
+
+
 Please download directly from releases to ensure you have a working build.
 
 # Vanva Terminal
