@@ -1,6 +1,5 @@
 ## Latest Releases:
  - Vanva Terminal: v.1.1
- - Vanva betaTerminal: v.1.1b
  - Vanva canaryTerminal: v.1.2c 
 
 
@@ -17,16 +16,12 @@ In larger terms, it is a terminal. It was originally inteded as a simple project
 ## What is it for?
 Nothing. If you want, you can use it as a replacement terminal on your computer.
 
-## What is the difference between Terminal.py, bTerminal.py, and cTerminal.py?
+## What is the difference between Terminal.py and cTerminal.py?
 Terminal.py is the official release of the Terminal. This should be safe to run and contains the official features. <br>
-bTerminal.py is short for betaTerminal, containing features that are tested but have no assurity in working correctly. <br>
 cTerminal.py is short for canaryTerminal, which features the latest features. cTerminal gets the most work.
 
-## Why is cTerminal a version point ahead of the rest of them?
-Currently, there are no new features, only minor bug fixes. Once a new feature is developed, the version number will be updated.
-
 ## How do I work on it?
-Fork the project, take bTerminal.py, add something to it, and set up a pull request. If the features are good, nonmalicious, useful, and well designed, the code will be added to the main branch.
+Fork the project, take cTerminal.py, add something to it, and set up a pull request. If the features are good, nonmalicious, useful, and well designed, the code will be added to the main branch.
 
 ## How do I run it?
  - Download a Terminal file.
