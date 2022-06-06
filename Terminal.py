@@ -5,23 +5,22 @@ from datetime import datetime
 from Tkinter import *
 import os
 import sys
+import subprocess
 from getpass import getpass
+global speedtestimport
+speedtestimport = 0
+try:
+    import speedtest
+    speedtestimport += 1
+except:
+    uselessvariable = 1
 #Unneeded loading screen. Intended to simulate actual loading.
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
-print "Welcome to Vanva Terminal v.1.1"
+print "Welcome to Vanva Terminal v.1.2"
 print "Copyright (c) 2021-2022 WG481"
 print "Provided under license."
-print "Unpacking files..."
-print ''
-time.sleep(2)
-print "Reading through files..."
-print ''
-time.sleep(1)
-print "Files ready."
-print ''
-print "Please wait while Vanva loads..."
-time.sleep(3)
+print ""
 clear()
 def logo():
     print " ___      ___ ________  ________   ___      ___ ________      "
@@ -81,27 +80,31 @@ def terminal():
         print "+ ECHO - Echoes some text that is inputted into a window.     +"
         print "+ END - Ends your Vanva session.                              +"
         print "+ HELP - Prints help text.                                    +"
-        print "+ HELP OPEN - Prints OPEN syntax.                             +"
         print "+ OPEN - Allows you to open a file by entering a path.        +"
         print "+ OPEN WINDOW - Opens a sample window.                        +"
         print "+ TIME - Prints the time.                                     +"
         print "+ VER INFO - Prints the version info of your build.           +"
+        print "+ DEACTIVATE - Deactivates the software for testing purposes. +"
         print "+ CLS - Clears the screen. Add argument /nl for no logo.      +"
         print "+ OSC - Runs an OS level command.                             +"
         print "+ HELP OSC - Prints information for OSC.                      +"
+        print "+ INTERNET - Prints internet download and upload.             +"
         print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     elif input1 == "changelog":
         print "~~~Changes have been made to Vanva since your last installation.~~~"
-        print "The not long awaited 1.1 build comes to the official Terminal release!"
-        print "This build includes the new OSC feature, which allows the user to run"
-        print "operating system level commands (bash, batch, or zsh) with the terminal!"
-        print ""
-        print "This build also supports CLS, a new command to clear the screen,"
-        print "which utilizes the same framework as OSC."
-        print ""
-        print "The long time deprecated VanvaX feature has been removed. Commands"
-        print "like NSIS are planned for future installations of Vanva, but"
-        print "VanvaX will remain removed from Vanva Terminal officially."
+        print "NEW FEATURES:"
+        print "Added DEACTIVATE, a feature to remove your savefile."
+        print "Added INTERNET, a feature which checks your internet download and upload"
+        print "speeds. INTERNET requires the SPEEDTEST-CLI module to run, and will not"
+        print "function without it."
+        print "NEW BUGFIXES:"
+        print "Removed the loading screen."
+        print "OPEN command now has three modes: NT, DARWIN, and OTHER."
+        print " - NT Mode operates through the OS module to open."
+        print " - DARWIN Mode operates through SYS and SUBPROCESS modules, and runs"
+        print "   the macOS 'open' command."
+        print " - OTHER Mode assumes you are on Linux and runs 'xdg-open' through"
+        print "   the SYS and SUBPROCESS modules."
     elif input1 == "time":
         print strftime("%Y-%m-%d %H:%M:%S", localtime())
     elif input1 == "open window":
@@ -136,18 +139,75 @@ def terminal():
         clear()
     elif input1 == "open":
         inputopen = raw_input("Path to the file? >>>: ")
-        os.startfile(inputopen)
-    elif input1 == "help open":
-        print "An example of how to use open: open *click enter* c:/program files/VXZLTD/terminal/terminal.exe"
-        print "Make sure you know the file path, make it lowercase, and use / instead of \, ok?"
+        if os.name == 'nt':
+            global inputopen
+            os.startfile(inputopen)
+        elif sys.platform == "darwin":
+            global inputopen
+            subprocess.call(["open", inputopen])
+        else:
+            global inputopen
+            subprocess.call(["xdg-open", inputopen])
     elif input1 == "ver info":
-        print "~~~Vanva Terminal v.1.1 Update~~~"
-        print "Created in Notepad++, a free source code editor and Notepad replacement that supports several languages."
+        print "~~~Vanva Terminal v.1.1~~~"
+        print "Made using Notepad++ and Visual Studio Code."
         print "Coded in Python 2.7."
         print "Coded, Edited, and Tested by WG481."
-        print "Installer compiled to .EXE by NSIS and zip2exe."
-        print ".PY file Compiled to .EXE by auto-py-to-exe."
-        print "This is an official Vanva Terminal build. This is not part of any Beta program."
+    elif input1 == "internet":
+        if speedtestimport == 1:
+            print "Attempting an Internet Speed Test..."
+            print "This should take about 30 seconds."
+            try:
+                st = speedtest.Speedtest()
+                downloadspeed = int(st.download()) / 1000000
+                uploadspeed = int(st.upload()) / 1000000
+                print "Download speed: ", downloadspeed, " Mbps."
+                print "Upload speed: ", uploadspeed, " Mbps."
+                if downloadspeed > 50 and downloadspeed < 70:
+                    print "Your internet speed is good. You should be able to stream HD"
+                    print "video off of one device without too many problems."
+                elif downloadspeed > 70 and downloadspeed < 120:
+                    print "Your internet speed is great! You should be able to handle a load"
+                    print "of multiple devices streaming HD video without any problems."
+                elif downloadspeed > 120:
+                    print "Your internet speed is amazing! Downloading mass amounts of files"
+                    print "while streaming HD video should be ok!"
+                elif downloadspeed < 50:
+                    print "Your internet speed is poor. HD video playback will be a problem."
+                print ""
+            except:
+                print ""
+                print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                print "An error occured while checking your network connection!"
+                print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                print ""
+                print "ERROR DETAILS:"
+                print "Type: connection_failed"
+                print "Name: Internet Connection"
+                print ""
+                print "Please check your internet connection and try again later."
+                print ""
+        else:
+            print ""
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print "An error occured while checking your network connection!"
+            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            print ""
+            print "ERROR DETAILS:"
+            print "Type: module_unavailable"
+            print "Name: Speedtest Module"
+            print ""
+            print "Please use PIP2 to install speedtest-cli for Python 2.7."
+    elif input1 == "deactivate":
+        os.remove(file_path)
+        clear()
+        print "Running deactivation..."
+        time.sleep(2)
+        print "Deactivation success. Now restarting the software..."
+        time.sleep(2)
+        clear()
+        logo()
+        main()
     elif input1 == "echo":
         inputecho = raw_input("Echo what? >>>:")
         root = Tk()
