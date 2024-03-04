@@ -14,31 +14,42 @@ global inputpip1
 global inputpip2
 global commandtorun
 global now
+global icompletelyunderstand
+def missingtest():
+    print("An error occured while attemtpting to import a necessary dependency.")
+    print("speedtest-cli is missing, which is required for a portion of this program.")
+    print("Confirm that you understand this missing file will cause errors.")
+    icompletelyunderstand = input("You understand? (Y/N): ")
+    if icompletelyunderstand == "Y" or "y" or "yes":
+        print("")
+    elif icompletelyunderstand == "i swear to the heavens let me in":
+        print("You are now a permanent resident of the toasty place.")
+    else:
+        quit()
 try:
     import speedtest
-    print("Speedtest imported.")
     speedtestimport += 1
 except:
-    print("Could not import speedtest.")
+    missingtest()
 #Unneeded loading screen. Intended to simulate actual loading.
 devfile = "devsettings.txt"
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 errorthrown = 0
-print("Welcome to Vanva Terminal v.1.3x")
+print("Welcome to Vanva Terminal v.1.3.1x")
 print("Copyright (c) 2021-2024 WG481")
 print("Provided under license.")
 print(" ")
 def logo():
-    print(" ___      ___ ________  ________   ___      ___ ________      ")
-    print("|\\  \\    /  /|\\   __  \\|\\   ___  \\|\\  \\    /  /|\\   __  \\     ")
-    print("\\ \\  \\  /  / | \\  \\|\\  \\ \\  \\\\ \\  \\ \\  \\  /  / | \\  \\|\\  \\    ")
-    print(" \\ \\  \\/  / / \\ \\   __  \\ \\  \\\\ \\  \\ \\  \\/  / / \\ \\   __  \\   ")
-    print("  \\ \\    / /   \\ \\  \\ \\  \\ \\  \\\\ \\  \\ \\    / /   \\ \\  \\ \\  \\  ")
-    print("   \\ \\__/ /     \\ \\__\\ \\__\\ \\__\\\\ \\__\\ \\__/ /     \\ \\__\\ \\__\\ ")
-    print("    \\|__|/       \\|__|\\|__|\\|__| \\|__|\\|__|/       \\|__|\\|__| ")
+    print ("     ██╗   ██╗ █████╗ ███╗  ██╗██╗   ██╗ █████╗ ")
+    print ("     ██║   ██║██╔══██╗████╗ ██║██║   ██║██╔══██╗")
+    print ("     ╚██╗ ██╔╝███████║██╔██╗██║╚██╗ ██╔╝███████║")
+    print ("      ╚████╔╝ ██╔══██║██║╚████║ ╚████╔╝ ██╔══██║")
+    print ("       ╚██╔╝  ██║  ██║██║ ╚███║  ╚██╔╝  ██║  ██║")
+    print ("        ╚═╝   ╚═╝  ╚═╝╚═╝  ╚══╝   ╚═╝   ╚═╝  ╚═╝")
     print("")
-    print('Github Canary Warning: This is a build of canaryTerminal, which has features that are not wholeheartedly tested.')
+    print("▀▄▀ █▀▀ █▄ █ █▀█ █   █ ▀█▀ █ █   █▀▀ █▀▄ █ ▀█▀ █ █▀█ █▄ █")
+    print("█ █ ██▄ █ ▀█ █▄█ █▄▄ █  █  █▀█   ██▄ █▄▀ █  █  █ █▄█ █ ▀█")
     global devfile
     if os.path.exists(devfile):
         with open(devfile, "r") as f:
@@ -91,12 +102,10 @@ def terminal():
         print(" ")
         print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         print("+ CHANGELOG - Prints update notes.                            +")
-        print("+ ECHO - Echoes some text that is inputted into a window.     +")
         print("+ HELP - Prints help text.                                    +")
         print("+ HELP OPEN - Prints OPEN syntax.                             +")
         print("+ OPEN - Allows you to open a file by entering a path.        +")
-        print("+ OPEN WINDOW - Opens a sample window.                        +")
-        print("+ TIME - Prints the time.                                     +")
+        print("+ TIME - Prints the time in ISO 8601.                         +")
         print("+ VER INFO - Prints the version info of your build.           +")
         print("+ DEACTIVATE - Deactivates the software for testing purposes, +")
         print("+ and can run alone or with two arguments: DEVPASS and ALL,   +")
@@ -105,12 +114,8 @@ def terminal():
         print("+ OSC - Runs an OS level command.                             +")
         print("+ HELP OSC - Prints information for OSC.                      +")
         print("+ INTERNET - Prints internet download and upload.             +")
-        print("+ PIP - Installs a package with PIP2.                         +")
-        print("+ CODECS - Prints available Codecs.                           +")
+        print("+ PIP - Installs a package with PIP.                          +")
         print("+ END - Ends your Vanva session.                              +")
-        print("+                                                             +")
-        print("+ You may also type a Codec Invocation command to run a       +")
-        print("+ specific Codec in your installation folder.                 +")
         print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     elif input1 == "changelog":
         print("~~~Changes have been made to Vanva since your last installation.~~~")
@@ -128,6 +133,13 @@ def terminal():
         print(" the SYS and SUBPROCESS modules.")
         print("INTERNET checks for the SPEEDTEST-CLI module to prevent errors.")
         print("")
+        print("1.3.1x Update!")
+        print("Edited dependencies to not just be a port of canaryTerminal.")
+        print("Removed Codec support. It's unecessary now.")
+        print("Removed OPEN WINDOW and ECHO.")
+        print("Laying the groundwork for the intial plan defined in VER INFO.")
+        print("Updated TIME syntax to work with Py3.")
+        print("")
         print("~~~Python 3.x Support!~~~")
         print("Now introducing the Xenolith builds :)")
         print("Xenolith is the tagline for any Python 3 build at this moment.")
@@ -139,11 +151,6 @@ def terminal():
     elif input1 == "time":
         now = datetime.now()
         print(now.strftime("%Y-%m-%d %H:%M:%S"))
-    elif input1 == "open window":
-        root = Tk()
-        root.geometry("500x500")
-        root.title('Vanva Terminal')
-        btn1 = Button(root, text="Pointless Button", command=root.destroy).pack()
     elif input1 == "end":
         print("Ending Vanva processes...")
         time.sleep(1)
@@ -322,13 +329,6 @@ def terminal():
             print("")
             print("To solve this problem, run standalone DEACTIVATE.")
             print("")
-    elif input1 == "echo":
-        inputecho = input("Echo what? >>>:")
-        root = Tk()
-        root.title('Vanva Terminal Tkinter Window')
-        text1 = Text(root)
-        text1.insert(INSERT, inputecho)
-        text1.pack()
     #Surprise to those of you who read the source code:
     #VanvaX may be returning. I need to figure out dev processes, but I'll find a way to return it cuz it's fun.
     else:
