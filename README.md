@@ -1,7 +1,7 @@
 ## Latest Releases Available:
  - Vanva Terminal: v.1.2
  - Vanva canaryTerminal: v.1.3c
- - Vanva Xenolith Edition: 1.3x 
+ - Vanva Xenolith Edition: 1.3.1x 
 
 
 Please download directly from releases to ensure you have a working build.
